@@ -20,7 +20,7 @@ def detect():
     face_shape, gender, age = detect_face_shape(filepath)
     celebrity, beard, comment = get_celebrity_suggestion(face_shape, gender, age)
 
-    return jsonify({
+       return jsonify({
         'face_shape': face_shape,
         'gender': gender,
         'age': age,
@@ -28,7 +28,7 @@ def detect():
         'beard': beard,
         'comment': comment,
         'image_url': "https://via.placeholder.com/150"
-
     })
-    if __name__ == '__main__':
-        app.run(host='0.0.0.0', port=5000)
+
+if __name__ == '__main__':
+    app.run(host='0.0.0.0', port=5000)

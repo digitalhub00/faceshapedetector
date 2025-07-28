@@ -1,12 +1,10 @@
 from flask import Flask, request, jsonify
 from utils.face_shape_detector import detect_face_shape
 from celebrity_data import get_celebrity_suggestion
-import os
 from flask_cors import CORS
 
 app = Flask(__name__)
 CORS(app)
-
 
 @app.route('/detect', methods=['POST'])
 def detect():
@@ -20,7 +18,7 @@ def detect():
     face_shape, gender, age = detect_face_shape(filepath)
     celebrity, beard, comment = get_celebrity_suggestion(face_shape, gender, age)
 
-       return jsonify({
+    return jsonify({
         'face_shape': face_shape,
         'gender': gender,
         'age': age,

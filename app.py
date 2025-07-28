@@ -1,8 +1,7 @@
 from flask import Flask, request, jsonify
+from flask_cors import CORS
 from utils.face_shape_detector import detect_face_shape
 from celebrity_data import get_celebrity_suggestion
-import os
-from flask_cors import CORS
 
 app = Flask(__name__)
 CORS(app)

@@ -1,7 +1,8 @@
 { pkgs }: {
   deps = [
-    pkgs.python312
-    pkgs.python312Packages.flask
-    pkgs.python312Packages.flask_cors
+    pkgs.python311Full
+    pkgs.python311Packages.pip
+    pkgs.python311Packages.setuptools
+    pkgs.python311Packages.wheel
   ];
 }

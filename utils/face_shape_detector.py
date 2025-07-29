@@ -1,11 +1,13 @@
-import random
+from deepface import DeepFace
 
 def detect_face_shape(image_path):
-    face_shapes = ['Oval', 'Round', 'Square', 'Diamond', 'Heart']
-    genders = ['male', 'female']
-    age = random.randint(18, 45)
+    # Analyze the image
+    analysis = DeepFace.analyze(img_path=image_path, actions=['gender', 'age'], enforce_detection=False)
 
-    face_shape = random.choice(face_shapes)
-    gender = random.choice(genders)
+    gender = analysis[0]['gender']
+    age = int(analysis[0]['age'])
 
-    return face_shape, gender, age
+    # Example dummy face shape detection
+    face_shape = "Oval"  # You can use your existing shape logic here
+
+    return face_shape, gender.lower(), age
